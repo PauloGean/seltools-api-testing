@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "f81f8f71-d858-408c-a7e5-a8edad337b69",
+		"name": "SDT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login The One",
+			"item": [
+				{
+					"name": "[Auth] Check if user can login successfully with correct details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var resp = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(200));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check Media type Content-Type: application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns STATUS equal to SUCCESS\", function () {\r",
+									"    pm.expect(pm.response.to.have.jsonBody('status', 'success'));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check status SSO equals TRUE\", function () {\r",
+									"    pm.expect(resp.data.detail.authPoints.sso).to.eql(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"user\": \"karla.borges\",\r\n \"password\": \"k@2021@sd\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://105.112.171.145:6060/auth",
+							"protocol": "http",
+							"host": [
+								"105",
+								"112",
+								"171",
+								"145"
+							],
+							"port": "6060",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Auth] Enter wrong credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check Media type Content-Type: application/json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns STATUS equal to Failed\", function () {\r",
+									"    pm.response.to.have.jsonBody('status', 'failed');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check message equals 'Incorrect username or password' \", function () {\r",
+									"    pm.response.to.have.jsonBody('message', 'Incorrect username or password');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"user\": \"teste\",\r\n \"password\": \"teste\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://105.112.171.145:6060/auth",
+							"protocol": "http",
+							"host": [
+								"105",
+								"112",
+								"171",
+								"145"
+							],
+							"port": "6060",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SDT API",
+			"item": [
+				{
+					"name": "[SDT] Check search with invalid user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.response.to.have.jsonBody('error', true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to FAILED\", function () {\r",
+									"    pm.response.to.have.jsonBody('result_test_fields', 'failed');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to FAILED\", function () {\r",
+									"    pm.response.to.have.jsonBody('result_test_packages', 'failed');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST FIELDS equal to Error to authenticate clientid.\", function () {\r",
+									"    pm.expect(jsonData.test_fields[0].exception).to.equals(\"Error to authenticate clientid. Ex \\'NoneType'\\ object is not subscriptable\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST PACKAGES equal to Error to authenticate GCIM\", function () {\r",
+									"    pm.expect(jsonData.test_packages[0].exception).to.equals('Error to authenticate GCIM.');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"teste\");\r",
+									"pm.environment.set(\"password\", \"teste\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_right.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT] Check search with valid user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns FIELDS equal ARO - Argentina - 10_202003.go - SM-A013M\", function () {\r",
+									"    pm.expect(jsonData.carrie).to.equals(\"ARO\");\r",
+									"    pm.expect(jsonData.country).to.equals(\"Argentina\");\r",
+									"    pm.expect(jsonData.gmsversion).to.equals(\"10_202003.go\");\r",
+									"    pm.expect(jsonData.model).to.equals(\"SM-A013M\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns CLIENTIDs RESULT equal to PASSED\", function () {\r",
+									"    for (i = 0; i < 7; i++){\r",
+									"        pm.expect(jsonData.test_fields[i].result).to.equals(\"passed\");\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns TEST PACKAGES RESULT equal to PASSED\", function () {\r",
+									"    for (i = 0; i < 21; i++){\r",
+									"        pm.expect(jsonData.test_packages[i].result).to.equals(\"passed\");\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_fields).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_packages).to.equals(\"passed\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_right.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT] Check search with invalid file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.expect(jsonData.error).to.equals(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION equal to Error process file.\", function () {\r",
+									"    pm.expect(jsonData.exception).to.equals(\"Error process file . Exception syntax error: line 1, column 0\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_invalid_file.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT] Check search with invalid GMS Version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.expect(jsonData.error).to.equals(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_fields).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result_test_packages).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST FIELDS equal to list index out of range\", function () {\r",
+									"    pm.expect(jsonData.test_packages[0].exception).to.equals('list index out of range');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_invalid_GMS.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT] Check when MODEL does not exist in the CLIENT ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"// x = myObj.cars[0];\r",
+									"\r",
+									"// for (i in myObj.cars) {\r",
+									"//   x += myObj.cars[i];\r",
+									"// }\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.expect(jsonData.error).to.equals(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns MODEL equal to NULL\", function () {\r",
+									"    pm.expect(jsonData.model).to.equals(\"null\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result_test_fields).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_packages).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST FIELDS equal to STD file not contains Model\", function () {\r",
+									"    pm.expect(jsonData.test_fields[0].exception).to.equals('STD file not contains Model');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_model_invalid.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT] Check when OS does not exist in the CLIENT ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.expect(jsonData.error).to.equals(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result_test_fields).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_packages).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST FIELDS equal to Not found values by OS 11.0\", function () {\r",
+									"    pm.expect(jsonData.test_fields[0].exception).to.equals('Not found values by OS 11.0');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_OS_invalid.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT]  Check when CARRIER does not exist in the CLIENT ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.expect(jsonData.error).to.equals(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result_test_fields).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_packages).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST FIELDS equal to Not found values by OS (11.0) , Model (SM-A525M) and Carrier (CPA)\", function () {\r",
+									"    pm.expect(jsonData.test_fields[0].exception).to.equals('Not found values by OS (11.0) , Model (SM-A525M) and Carrier (CPTT)');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_CARRIER_not exist.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDT]  Check when COUNTRY does not exist in the CLIENT ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check error equals true\", function () {\r",
+									"    pm.expect(jsonData.error).to.equals(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST FIELDS equal to FAILED\", function () {\r",
+									"    pm.expect(jsonData.result_test_fields).to.equals(\"failed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns RESULT TEST PACKAGES equal to PASSED\", function () {\r",
+									"    pm.expect(jsonData.result_test_packages).to.equals(\"passed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response body returns EXCEPTION TEST FIELDS equal to Not found values by Not found values by OS (10.0) , Model (SM-A013M) and Carrier (ARO)\", function () {\r",
+									"    pm.expect(jsonData.test_fields[0].exception).to.equals('Not found values by OS (10.0) , Model (SM-A013M) and Carrier (ARO)');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user\", \"karla.borges\");\r",
+									"pm.environment.set(\"password\", \"k@2021@sd\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "{{user}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "files/sdt_COUNTRY_not_exist.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_teste}}",
+							"host": [
+								"{{url_teste}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

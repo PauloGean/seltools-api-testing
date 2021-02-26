@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<SDTResult Version="11.0.1" Submitter="x@samsung.com">
+  <BuildInfo fingerprint="samsung/a01coreub/a01core:10/QP1A.190711.020/A013MUBU1ATI9:user/release-keys" apiLevel="29" deviceid="351797380028171" screenlayout="Normal|Long" resolution="1384X720" density="2.0" densityDPI="320.0" heightPixels="1384" widthPixels="720" cur_locale="en-GB" />
+  <MemInfo>
+    <RAM total="0.93 GB" />
+    <Data total="12.39 GB" />
+    <Cache />
+    <System total="1.04 GB" />
+  </MemInfo>
+  <SDTResult_checker>
+    <NoDebuggableApps status="OK" />
+    <Version status="OK" date="2102020" version="11.0.1" />
+    <Single_SKU status="IMPOSSIBLE" />
+    <GO_Version status="TRUE" />
+    <GOATS status="POSSIBLE" />
+    <VerifierBoot status="SUPPORTED" />
+    <TSS status="TRUE" />
+    <FOLDER status="FALSE" />
+    <Sensor_Biometric status="FALSE" />
+  </SDTResult_checker>
+  <TestPackage name="Security">
+    <Test name="System mount" value="null" />
+    <Test name="NoDebuggableApps" value="no bad apps found" />
+  </TestPackage>
+  <TestPackage name="Getprop">
+    <Test name="ro.product.brand" value="samsung" />
+    <Test name="ro.product.model" value="SM-A013M" />
+    <Test name="ro.boot.vbmeta.digest" value="3ca4c34c679526ff9a4d79bda9bc359f4cafc7d167e2f1a207e7b790096e506f" />
+    <Test name="ro.product.first_api_level" value="29" result="pass" />
+    <Test name="ro.sts.property" value="FALSE" />
+    <Test name="ro.csc.sales_code" value="ARO" result="pass" />
+    <Test name="ro.csc.country_code" value="Argentina" />
+    <Test name="ro.build.PDA" value="A013MUBU1ATI9" />
+    <Test name="ril.official_cscver" value="A013MOWA1ATH2" />
+    <Test name="ril.sw_ver" value="A013MUBU1ATH1" />
+    <Test name="ro.com.google.apphider" value="null">
+      <Reason msg="apphide feature is ON" />
+    </Test>
+    <Test name="ro.com.google.clientidbase" value="android-samsung-ss" />
+    <Test name="ro.com.google.clientidbase.am" value="null">
+      <Reason msg="Warning: not set, so GMS apps will use the same value as clientidbase for this property" />
+    </Test>
+    <Test name="ro.com.google.clientidbase.cr" value="null">
+      <Reason msg="Warning: not set, so GMS apps will use the same value as clientidbase for this property" />
+    </Test>
+    <Test name="ro.com.google.clientidbase.ms" value="android-samsung-gj-rev1">
+      <Reason msg="Skipped checking due to uncertain criteria" />
+    </Test>
+    <Test name="ro.com.google.clientidbase.gmm" value="null" />
+    <Test name="ro.com.google.clientidbase.yt" value="null" />
+    <Test name="ro.com.google.clientidbase.wal" value="null">
+      <Reason msg="Warning: not set, so GMS apps will use the same value as clientidbase for this property" />
+    </Test>
+    <Test name="ro.com.google.clientidbase.vs" value="android-samsung-gj-rev1">
+      <Reason msg="Warning: property is deprecated by Google: should not be set on New Device Builds" />
+    </Test>
+    <Test name="chrome_client_id" value="ms-android-samsung-gj-rev1">
+      <Reason msg="Unexpected format. Please check validity of the client id values." />
+    </Test>
+    <Test name="client_id" value="android-samsung-gj-rev1">
+      <Reason msg="Unexpected format. Please check validity of the client id values." />
+    </Test>
+    <Test name="market_client_id" value="am-android-samsung-ss" />
+    <Test name="playtx_client_id" value="play-ms-android-samsung-ss">
+      <Reason msg="Unexpected format. Please check validity of the client id values." />
+    </Test>
+    <Test name="search_client_id" value="ms-android-samsung-gj-rev1">
+      <Reason msg="Unexpected format. Please check validity of the client id values." />
+    </Test>
+    <Test name="voicesearch_client_id" value="ms-as-android-samsung-gj-rev1">
+      <Reason msg="Unexpected format. Please check validity of the client id values." />
+    </Test>
+    <Test name="ro.com.google.gmsversion" value="10_20203.go">
+      <Reason msg="GMS version(10_202003.go) is invalid, please check" />
+    </Test>
+    <Test name="hardwareAccelerated" value="true" />
+  </TestPackage>
+  <TestPackage name="uses-feature">
+    <List name="android.hardware.audio.output" />
+    <List name="android.hardware.bluetooth" />
+    <List name="android.hardware.bluetooth_le" />
+    <List name="android.hardware.camera" />
+    <List name="android.hardware.camera.any" />
+    <List name="android.hardware.camera.autofocus" />
+    <List name="android.hardware.camera.capability.manual_post_processing" />
+    <List name="android.hardware.camera.capability.manual_sensor" />
+    <List name="android.hardware.camera.flash" />
+    <List name="android.hardware.camera.front" />
+    <List name="android.hardware.faketouch" />
+    <List name="android.hardware.location" />
+    <List name="android.hardware.location.gps" />
+    <List name="android.hardware.location.network" />
+    <List name="android.hardware.microphone" />
+    <List name="android.hardware.opengles.aep" />
+    <List name="android.hardware.ram.low" />
+    <List name="android.hardware.screen.landscape" />
+    <List name="android.hardware.screen.portrait" />
+    <List name="android.hardware.sensor.accelerometer" />
+    <List name="android.hardware.sensor.proximity" />
+    <List name="android.hardware.telephony" />
+    <List name="android.hardware.telephony.gsm" />
+    <List name="android.hardware.telephony.ims" />
+    <List name="android.hardware.touchscreen" />
+    <List name="android.hardware.touchscreen.multitouch" />
+    <List name="android.hardware.touchscreen.multitouch.distinct" />
+    <List name="android.hardware.touchscreen.multitouch.jazzhand" />
+    <List name="android.hardware.usb.accessory" />
+    <List name="android.hardware.usb.host" />
+    <List name="android.hardware.wifi" />
+    <List name="android.hardware.wifi.direct" />
+    <List name="android.hardware.wifi.passpoint" />
+    <List name="android.software.app_widgets" />
+    <List name="android.software.autofill" />
+    <List name="android.software.backup" />
+    <List name="android.software.cant_save_state" />
+    <List name="android.software.companion_device_setup" />
+    <List name="android.software.connectionservice" />
+    <List name="android.software.cts" />
+    <List name="android.software.device_admin" />
+    <List name="android.software.file_based_encryption" />
+    <List name="android.software.home_screen" />
+    <List name="android.software.input_methods" />
+    <List name="android.software.ipsec_tunnels" />
+    <List name="android.software.midi" />
+    <List name="android.software.print" />
+    <List name="android.software.secure_lock_screen" />
+    <List name="android.software.securely_removes_users" />
+    <List name="android.software.sip" />
+    <List name="android.software.sip.voip" />
+    <List name="android.software.verified_boot" />
+    <List name="android.software.webview" />
+    <List name="com.google.android.feature.WELLBEING" />
+    <List name="com.sec.feature.motionrecognition_service" />
+  </TestPackage>
+  <TestPackage name="shared-lib">
+    <List name="android.ext.services" />
+    <List name="android.ext.shared" />
+    <List name="com.google.android.gms" />
+    <List name="com.google.android.maps" />
+  </TestPackage>
+  <TestPackage name="native-libs" />
+  <TestPackage name="applist">
+    <List name="com.sec.android.app.DataCreate:1:1.0" />
+    <List name="com.android.cts.priv.ctsshim:28:9-5374186" />
+    <List name="com.samsung.android.smartswitchassistant:1004:1.0.04" />
+    <List name="com.sec.android.app.setupwizardlegalprovider:200200000:2.0.02.0" />
+    <List name="com.sec.android.app.chromecustomizations:302500000:3.0.25" />
+    <List name="com.android.internal.display.cutout.emulation.corner:1:1.0" />
+    <List name="com.google.android.ext.services:291900801:q_pr1-release_aml_291900801" />
+    <List name="com.android.internal.display.cutout.emulation.double:1:1.0" />
+    <List name="com.sec.location.nfwlocationprivacy:100700000:1.0.07" />
+    <List name="com.android.providers.telephony:29:10" />
+    <List name="com.sec.android.app.parser:1100000006:11.0.00.6" />
+    <List name="com.android.dynsystem:29:10" />
+    <List name="com.samsung.android.calendar:812400000:8.1.24" />
+    <List name="com.samsung.android.timezone.updater:100000000:1.0.00.00000" />
+    <List name="com.android.providers.calendar:29:1200" />
+    <List name="com.osp.app.signin:1140000010:11.4.00.10" />
+    <List name="com.sec.automation:2:2.0.1" />
+    <List name="com.android.providers.media:1025:10" />
+    <List name="com.android.theme.icon.square:1:1.0" />
+    <List name="com.google.android.onetimeinitializer:29:10-5771379" />
+    <List name="com.google.android.ext.shared:1:1" />
+    <List name="com.android.internal.systemui.navbar.gestural_wide_back:1:1.0" />
+    <List name="com.android.wallpapercropper:29:10" />
+    <List name="com.samsung.max.go:410430000:4.1.43" />
+    <List name="com.android.theme.color.cinnamon:1:1.0" />
+    <List name="com.google.android.apps.mapslite:98:98" />
+    <List name="com.samsung.android.incallui:1100200004:11.0.02.4" />
+    <List name="com.android.theme.icon_pack.rounded.systemui:1:1.0" />
+    <List name="com.sec.factory.camera:338800000:3.3.88" />
+    <List name="com.sec.vsimservice:1:1.0" />
+    <List name="com.sec.usbsettings:1:1.0" />
+    <List name="com.android.documentsui:29:10" />
+    <List name="com.android.externalstorage:29:10" />
+    <List name="com.sec.factory:29:10" />
+    <List name="com.android.htmlviewer:300300000:3.0.03" />
+    <List name="com.android.companiondevicemanager:29:10" />
+    <List name="com.google.android.apps.navlite:16:10.2.9" />
+    <List name="com.android.mms.service:29:10" />
+    <List name="com.android.providers.downloads:29:10" />
+    <List name="com.android.networkstack.inprocess:29:10" />
+    <List name="com.android.theme.icon_pack.rounded.android:1:1.0" />
+    <List name="com.wsomacp:740700000:7.4.07" />
+    <List name="com.samsung.whatsnext:1:1.0" />
+    <List name="com.samsung.android.MtpApplication:1:1.0" />
+    <List name="com.sec.android.app.factorykeystring:29:10" />
+    <List name="com.sec.android.app.samsungapps:520102120:5.2.01.2" />
+    <List name="com.sec.android.emergencymode.service:802703100:8.0.27.3" />
+    <List name="com.android.theme.icon_pack.circular.themepicker:1:1.0" />
+    <List name="com.google.android.configupdater:29:10-5771379" />
+    <List name="com.sec.android.app.wlantest:2:1.1.0" />
+    <List name="com.google.android.overlay.modules.permissioncontroller:1:1.0" />
+    <List name="com.sec.epdgtestapp:29:10" />
+    <List name="com.samsung.android.timezone.data_Q:100000000:1.0.00.0" />
+    <List name="com.sec.ims:1:1.0" />
+    <List name="com.sec.sve:1:1.0" />
+    <List name="com.android.providers.downloads.ui:29:10" />
+    <List name="com.android.vending:82141510:21.4.15-21 [0] [PR] 325538472" />
+    <List name="com.android.pacprocessor:29:10" />
+    <List name="com.android.simappdialog:29:10" />
+    <List name="com.google.android.gm.lite:693498:8.5.6.197464524.go_release" />
+    <List name="com.android.internal.display.cutout.emulation.tall:1:1.0" />
+    <List name="com.sec.android.provider.badge:210000007:2.1.00.7" />
+    <List name="com.android.certinstaller:29:10" />
+    <List name="com.android.theme.color.black:1:1.0" />
+    <List name="com.android.carrierconfig:1:1.0.0" />
+    <List name="com.android.theme.color.green:1:1.0" />
+    <List name="com.android.theme.color.ocean:1:1.0" />
+    <List name="com.android.theme.color.space:1:1.0" />
+    <List name="com.android.internal.systemui.navbar.threebutton:1:1.0" />
+    <List name="com.samsung.rcs:23011747:7.0r10456367" />
+    <List name="android:29:10" />
+    <List name="com.android.contacts:1100200029:11.0.02.29" />
+    <List name="com.android.theme.icon_pack.rounded.launcher:1:1.0" />
+    <List name="com.samsung.android.providers.carrier:102200200:1.0.22" />
+    <List name="com.samsung.android.aircommandmanager:124900000:1.2.49" />
+    <List name="com.android.egg:1:1.0" />
+    <List name="com.android.mtp:29:10" />
+    <List name="com.android.ons:29:10" />
+    <List name="com.android.stk:29:10" />
+    <List name="com.samsung.android.messaging:1020000044:10.2.00.44" />
+    <List name="com.android.backupconfirm:29:10" />
+    <List name="com.sec.android.app.SecSetupWizard:209710010:2.0.97.10" />
+    <List name="com.samsung.android.app.telephonyui:1100100051:11.0.01.51" />
+    <List name="com.android.internal.systemui.navbar.twobutton:1:1.0" />
+    <List name="com.android.statementservice:1:1.0" />
+    <List name="com.android.hotspot2:29:10" />
+    <List name="com.sec.android.app.sbrowser.lite:740010000:7.4.00.10" />
+    <List name="com.google.android.apps.tachyon:3006830:80.0.303818869.DR80_RC07.s" />
+    <List name="com.sec.android.app.hwmoduletest:29:10" />
+    <List name="com.android.settings.intelligence:29:10" />
+    <List name="com.sec.bcservice:2:2.0" />
+    <List name="com.mediatek.frameworkresoverlay:29:10" />
+    <List name="com.google.android.apps.searchlite:173804:2.13.284168572.release.go" />
+    <List name="com.android.internal.systemui.navbar.gestural_extra_wide_back:1:1.0" />
+    <List name="com.sec.android.app.wallpaperchooser:910000000:9.1.00.0" />
+    <List name="com.google.android.permissioncontroller:291900801:q_pr1-release_aml_291900801" />
+    <List name="com.sec.android.app.servicemodeapp:29:10" />
+    <List name="com.sec.android.preloadinstaller:29:10" />
+    <List name="com.google.android.setupwizard:4094:229.294135555" />
+    <List name="com.sec.android.gallery3d:29:10" />
+    <List name="com.android.providers.settings:29:10" />
+    <List name="com.sec.imsservice:1:1.0" />
+    <List name="com.android.sharedstoragebackup:29:10" />
+    <List name="com.facebook.services:201367626:54.0.12" />
+    <List name="com.android.printspooler:29:10" />
+    <List name="com.android.theme.icon_pack.filled.settings:1:1.0" />
+    <List name="com.android.dreams.basic:29:10" />
+    <List name="com.google.android.overlay.modules.ext.services:1:1.0" />
+    <List name="com.android.inputdevices:29:10" />
+    <List name="com.google.android.apps.wellbeing:131132:1.0.295707668" />
+    <List name="com.samsung.android.kgclient:223600000:2.2.36" />
+    <List name="com.android.bips:29:10" />
+    <List name="com.android.stk2:29:10" />
+    <List name="com.google.android.apps.nbu.files:366750:1.0.321681384" />
+    <List name="com.android.theme.icon_pack.circular.settings:1:1.0" />
+    <List name="com.google.android.overlay.gmsconfig:1:1.0" />
+    <List name="com.google.android.modulemetadata:292500400:2020-05-01" />
+    <List name="com.samsung.advp.imssettings:1:1.0" />
+    <List name="com.sec.android.inputmethod:315032000:3.1.50.32" />
+    <List name="com.sec.android.app.clockpackage:1019035000:10.1.90.35" />
+    <List name="com.sec.android.RilServiceModeApp:29:10" />
+    <List name="com.google.android.webview:404413830:81.0.4044.138" />
+    <List name="com.android.theme.icon.teardrop:1:1.0" />
+    <List name="com.android.onetimeinitializer:29:10" />
+    <List name="com.android.server.telecom:29:10" />
+    <List name="com.google.android.syncadapters.contacts:29:10-5771379" />
+    <List name="com.sec.imslogger:20170811:1.20170701" />
+    <List name="com.android.keychain:29:10" />
+    <List name="com.android.chrome:404413830:81.0.4044.138" />
+    <List name="com.android.theme.icon_pack.filled.systemui:1:1.0" />
+    <List name="com.google.android.packageinstaller:29:10-6052471" />
+    <List name="com.google.android.gms:202117063:20.21.17 (110306-316502805)" />
+    <List name="com.google.android.gsf:29:10-6475670" />
+    <List name="com.google.android.tts:210315903:3.20.6.280280128" />
+    <List name="com.samsung.android.container:29:10" />
+    <List name="com.android.calllogbackup:29:10" />
+    <List name="com.google.android.partnersetup:29:10-6019755" />
+    <List name="com.android.localtransport:29:10" />
+    <List name="com.sec.spp.push:310500000:3.1.05" />
+    <List name="com.android.carrierdefaultapp:29:10" />
+    <List name="com.android.theme.font.notoserifsource:1:1.0" />
+    <List name="com.android.theme.icon_pack.filled.android:1:1.0" />
+    <List name="com.android.proxyhandler:29:10" />
+    <List name="com.android.theme.icon_pack.circular.systemui:1:1.0" />
+    <List name="com.sec.android.app.launcher:1108008022:11.0.80.22" />
+    <List name="com.google.android.overlay.modules.permissioncontroller.forframework:1:1.0" />
+    <List name="com.google.android.feedback:29:10-5771379" />
+    <List name="com.google.android.printservice.recommendation:4:1.3.0" />
+    <List name="com.samsung.adaptivebrightnessgo:29:10" />
+    <List name="com.google.android.syncadapters.calendar:2016267990:6.0.44-267540251-release" />
+    <List name="com.android.managedprovisioning:29:10" />
+    <List name="com.samsung.safetyinformation:302700100:3.0.27.0" />
+    <List name="com.sec.android.app.ringtoneBR:29:10" />
+    <List name="com.google.android.apps.speechservices:804:1.0.7.arm" />
+    <List name="com.android.providers.partnerbookmarks:29:10" />
+    <List name="com.facebook.system:219917280:55.1.0" />
+    <List name="com.sec.android.app.popupcalculator:1012009000:10.1.20.9" />
+    <List name="com.sec.android.soagent:510301000:5.1.03" />
+    <List name="com.sec.unifiedwfc:640500038:6.4.05.38" />
+    <List name="com.android.theme.icon.squircle:1:1.0" />
+    <List name="com.sec.phone:1:1.0" />
+    <List name="com.google.android.apps.photosgo:2869905:1.1.8.317781075 release" />
+    <List name="com.android.storagemanager:29:10" />
+    <List name="com.android.bookmarkprovider:29:10" />
+    <List name="com.android.settings:29:10" />
+    <List name="com.google.android.overlay.gmsagoconfig:1:1.0" />
+    <List name="com.sec.android.app.bluetoothtest:29:10" />
+    <List name="com.android.theme.icon_pack.filled.launcher:1:1.0" />
+    <List name="com.android.networkstack.permissionconfig:290000000:2019-09" />
+    <List name="com.sec.android.emergencylauncher:101301001:1.0.13.1" />
+    <List name="com.android.cts.ctsshim:28:9-5374186" />
+    <List name="com.android.theme.icon_pack.circular.launcher:1:1.0" />
+    <List name="com.google.android.apps.assistant:780:2.3.0.273994678.armeabi-v7a.release" />
+    <List name="com.android.vpndialogs:29:10" />
+    <List name="com.samsung.memorysaver:1104700100:11.0.47" />
+    <List name="com.android.phone:29:10" />
+    <List name="com.android.shell:29:10" />
+    <List name="com.android.theme.icon_pack.filled.themepicker:1:1.0" />
+    <List name="com.android.wallpaperbackup:29:10" />
+    <List name="com.android.providers.blockednumber:29:10" />
+    <List name="com.samsung.android.app.omcagent:526600200:5.2.66" />
+    <List name="com.android.providers.userdictionary:29:10" />
+    <List name="com.android.emergency:29:10" />
+    <List name="com.wssyncmldm:1:1.0" />
+    <List name="com.google.android.gms.location.history:1:1.0" />
+    <List name="com.android.internal.systemui.navbar.gestural:1:1.0" />
+    <List name="com.android.location.fused:29:10" />
+    <List name="com.android.theme.color.orchid:1:1.0" />
+    <List name="com.sec.epdg:29:10" />
+    <List name="com.android.systemui:29:10" />
+    <List name="com.sec.android.app.personalization:29:10" />
+    <List name="com.google.android.apps.youtube.mango:221583040:2.21.58" />
+    <List name="com.google.android.apps.youtube.music:34554230:3.45.54" />
+    <List name="com.android.theme.color.purple:1:1.0" />
+    <List name="com.android.bluetoothmidiservice:29:10" />
+    <List name="com.sec.rrocentre:1:1.0" />
+    <List name="com.facebook.appmanager:219917355:55.1.0" />
+    <List name="com.samsung.aasaservice:34:12.1" />
+    <List name="com.android.traceur:2:1.0" />
+    <List name="com.sec.android.app.fm:110009000:1.1.00.9" />
+    <List name="com.sec.android.provider.emergencymode:200500001:2.0.05.1" />
+    <List name="android.auto_generated_rro_product__:1:1.0" />
+    <List name="com.samsung.android.cidmanager:29:10" />
+    <List name="com.sec.android.app.camera:1000072400:10.0.00.72" />
+    <List name="com.android.bluetooth:29:10" />
+    <List name="com.android.providers.contacts:1100200009:11.0.02.9" />
+    <List name="com.sec.android.widgetapp.webmanual:300600240:3.0.06" />
+    <List name="com.samsung.sec.android.application.csc:100:1.0.1.0" />
+    <List name="com.android.captiveportallogin:290000000:2019-09" />
+    <List name="com.samsung.android.sdm.config:202800000:2.0.28" />
+    <List name="com.android.theme.icon.roundedrect:1:1.0" />
+    <List name="com.google.android.overlay.gmsgoconfig:1:1.0" />
+    <List name="com.android.internal.systemui.navbar.gestural_narrow_back:1:1.0" />
+    <List name="com.android.theme.icon_pack.rounded.settings:1:1.0" />
+    <List name="com.google.android.inputmethod.latin:26881041:8.8.10.277552084-lite_release-armeabi-v7a" />
+    <List name="com.samsung.android.sm.go:300000102:3.0.00.102" />
+    <List name="com.samsung.android.video:2140000000:2.0.0" />
+    <List name="android.auto_generated_rro_vendor__:1:1.0" />
+    <List name="com.android.theme.icon_pack.circular.android:1:1.0" />
+    <List name="com.google.android.apps.restore:9069:1.0.290634092" />
+  </TestPackage>
+  <TestPackage name="gms">
+    <Test name="com.android.chrome" value="404413830/81.0.4044.138" />
+    <Test name="com.android.facelock" value="-1" />
+    <Test name="com.android.hotwordenrollment.okgoogle" value="-1" />
+    <Test name="com.android.vending" value="82141510/21.4.15-21 [0] [PR] 325538472" />
+    <Test name="com.google.android.apps.adm" value="-1" />
+    <Test name="com.google.android.apps.books" value="-1" />
+    <Test name="com.google.android.apps.cloudprint" value="-1" />
+    <Test name="com.google.android.apps.docs" value="-1" />
+    <Test name="com.google.android.apps.docs.editors.docs" value="-1" />
+    <Test name="com.google.android.apps.docs.editors.sheets" value="-1" />
+    <Test name="com.google.android.apps.docs.editors.slides" value="-1" />
+    <Test name="com.google.android.apps.enterprise.dmagent" value="-1" />
+    <Test name="com.google.android.apps.fitness" value="-1" />
+    <Test name="com.google.android.apps.freighter" value="-1" />
+    <Test name="com.google.android.apps.gcs" value="-1" />
+    <Test name="com.google.android.apps.handwriting.ime" value="-1" />
+    <Test name="com.google.android.apps.inputmethod.hindi" value="-1" />
+    <Test name="com.google.android.apps.inputmethod.zhuyin" value="-1" />
+    <Test name="com.google.android.apps.magazines" value="-1" />
+    <Test name="com.google.android.apps.maps" value="-1" />
+    <Test name="com.google.android.apps.messaging" value="-1" />
+    <Test name="com.google.android.apps.nbu.files" value="366750/1.0.321681384" />
+    <Test name="com.google.android.apps.pdfviewer" value="-1" />
+    <Test name="com.google.android.apps.photos" value="-1" />
+    <Test name="com.google.android.apps.plus" value="-1" />
+    <Test name="com.google.android.apps.tachyon" value="3006830/80.0.303818869.DR80_RC07.s" />
+    <Test name="com.google.android.talk" value="-1" />
+    <Test name="com.google.android.apps.restore" value="9069/1.0.290634092" />
+    <Test name="com.google.android.apps.translate" value="-1" />
+    <Test name="com.google.android.apps.walletnfcrel" value="-1" />
+    <Test name="com.google.android.apps.wallpaper" value="-1" />
+    <Test name="com.google.android.apps.work.oobconfig" value="-1" />
+    <Test name="com.google.android.apps.youtube.mango" value="221583040/2.21.58" />
+    <Test name="com.google.android.calculator" value="-1" />
+    <Test name="com.google.android.calendar" value="-1" />
+    <Test name="com.google.android.configupdater" value="29/10-5771379" />
+    <Test name="com.google.android.contacts" value="-1" />
+    <Test name="com.google.android.deskclock" value="-1" />
+    <Test name="com.google.android.dialer" value="-1" />
+    <Test name="com.google.android.ext.services" value="291900801/q_pr1-release_aml_291900801" />
+    <Test name="com.google.android.ext.shared" value="1/1" />
+    <Test name="com.google.android.feedback" value="29/10-5771379" />
+    <Test name="com.google.android.gm" value="-1" />
+    <Test name="com.google.android.gms" value="202117063/20.21.17 (110306-316502805)" />
+    <Test name="com.google.android.gms.policy_sidecar_aps" value="2757077/2757077.261727253.261727253" />
+    <Test name="com.google.android.googlequicksearchbox" value="-1" />
+    <Test name="com.google.android.apps.googlevoice" value="-1" />
+    <Test name="com.google.android.gsf" value="29/10-6475670" />
+    <Test name="com.google.android.ims" value="-1" />
+    <Test name="com.google.android.inputmethod.japanese" value="-1" />
+    <Test name="com.google.android.inputmethod.korean" value="-1" />
+    <Test name="com.google.android.inputmethod.latin" value="26881041/8.8.10.277552084-lite_release-armeabi-v7a" />
+    <Test name="com.google.android.inputmethod.pinyin" value="-1" />
+    <Test name="com.google.android.keep" value="-1" />
+    <Test name="com.google.android.marvin.talkback" value="-1" />
+    <Test name="com.google.android.music" value="-1" />
+    <Test name="com.google.android.onetimeinitializer" value="29/10-5771379" />
+    <Test name="com.google.android.packageinstaller" value="29/10-6052471" />
+    <Test name="com.google.android.partnersetup" value="29/10-6019755" />
+    <Test name="com.google.android.play.games" value="-1" />
+    <Test name="com.google.android.printservice.recommendation" value="4/1.3.0" />
+    <Test name="com.google.android.setupwizard" value="4094/229.294135555" />
+    <Test name="com.google.android.street" value="-1" />
+    <Test name="com.google.android.syncadapters.calendar" value="2016267990/6.0.44-267540251-release" />
+    <Test name="com.google.android.syncadapters.contacts" value="29/10-5771379" />
+    <Test name="com.google.android.tag" value="-1" />
+    <Test name="com.google.android.tts" value="210315903/3.20.6.280280128" />
+    <Test name="com.google.android.videos" value="-1" />
+    <Test name="com.google.android.webview" value="404413830/81.0.4044.138" />
+    <Test name="com.google.android.youtube" value="-1" />
+    <Test name="com.google.earth" value="-1" />
+    <Test name="com.google.android.apps.youtube.music" value="34554230/3.45.54" />
+    <Test name="com.google.vr.vrcore" value="-1" />
+    <Test name="com.android.documentsui" value="29/10" />
+    <Test name="com.google.android.maps.jar" value="yes" />
+  </TestPackage>
+  <TestPackage name="google">
+    <Test name="com.google.android.apps.mapslite" value="98/98" />
+    <Test name="com.google.android.apps.navlite" value="16/10.2.9" />
+    <Test name="com.google.android.overlay.modules.permissioncontroller" value="1/1.0" />
+    <Test name="com.google.android.gm.lite" value="693498/8.5.6.197464524.go_release" />
+    <Test name="com.google.android.apps.searchlite" value="173804/2.13.284168572.release.go" />
+    <Test name="com.google.android.permissioncontroller" value="291900801/q_pr1-release_aml_291900801" />
+    <Test name="com.google.android.overlay.modules.ext.services" value="1/1.0" />
+    <Test name="com.google.android.apps.wellbeing" value="131132/1.0.295707668" />
+    <Test name="com.google.android.overlay.gmsconfig" value="1/1.0" />
+    <Test name="com.google.android.modulemetadata" value="292500400/2020-05-01" />
+    <Test name="com.google.android.overlay.modules.permissioncontroller.forframework" value="1/1.0" />
+    <Test name="com.google.android.apps.speechservices" value="804/1.0.7.arm" />
+    <Test name="com.google.android.apps.photosgo" value="2869905/1.1.8.317781075 release" />
+    <Test name="com.google.android.overlay.gmsagoconfig" value="1/1.0" />
+    <Test name="com.google.android.apps.assistant" value="780/2.3.0.273994678.armeabi-v7a.release" />
+    <Test name="com.google.android.gms.location.history" value="1/1.0" />
+    <Test name="com.google.android.overlay.gmsgoconfig" value="1/1.0" />
+  </TestPackage>
+</SDTResult>
